@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>map과 area 요소 | Techit</title>
+  </head>
+  <body>
+    <h1>이미지 맵</h1>
+    <!-- image-map 이라는 id값을 사용 -->
+    <img src="../assets/sprite/sns.png" usemap="#image-map" />
+
+    <!-- shape 영역 안에서 클릭할 때 링크 이동, coords는 좌표 위치 -->
+    <!-- imagemap generator -->
+    <map id="image-map">
+      <area target="_blank" alt="페이스북" title="페이스북" href="https://www.facebook.com/" coords="15,15,14" shape="circle" />
+      <area target="_blank" alt="인스타그램" title="인스타그램" href="https://www.instagram.com/" coords="65,15,14" shape="circle" />
+      <area target="_blank" alt="유튜브" title="유튜브" href="https://www.youtube.com/" coords="115,15,14" shape="circle" />
+    </map>
+  </body>
+</html>
