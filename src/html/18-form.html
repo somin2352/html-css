@@ -12,18 +12,27 @@
     <!-- legend를 이용해 폼 양식 설명 -->
     <!-- action은 button(submit type) submit시 연결된 서버를 나타냄 -->
     <!-- method get post 등 서버를 나타냄 -->
+    <!-- Formspree -->
     <form action="/" method="get">
       <fieldset>
         <legend>input 요소를 활용한 다양한 양식 만들기</legend>
         <!-- 한줄 글상자(text) -->
         <!-- required: 이 입력 서식은 필수임 -->
-        <p><input type="text" name="user-name" id="user-id" required /></p>
+        <p><label for="user-id">이름</label><input type="text" name="user-name" id="user-id" required /></p>
         <!-- 검색어 입력상자 (search) -->
-        <p><input type="search" name="search" id="search" /></p>
+        <p><label for="search">검색어</label><input type="search" name="search" id="search" /></p>
+
         <!-- 이메일 입력 서식(email) -->
-        <p><input type="email" name="user-email" id="user-email" required /></p>
+        <p><label for="user-email">이메일</label><input type="email" name="user-email" id="user-email" required /></p>
+
         <!-- 숫자 입력 서식(tel) -->
-        <p><input type="tel" name="user-phone" id="user-phone" required /></p>
+        <p><label for="user-phone">연락처</label><input type="tel" name="user-phone" id="user-phone" required /></p>
+
+        <!-- 체크박스 서식(checkbox) -->
+        <p><input value="html" checked type="checkbox" name="likelion-class" id="html" required /><label for="html">html</label> <input value="css" type="checkbox" name="likelion-class" id="css" required /><label for="css">css</label> <input value="javascript" type="checkbox" name="likelion-class" id="javascript" required /><label for="javascript">javascript</label> <input value="react" type="checkbox" name="likelion-class" id="react" required /><label for="react">react</label></p>
+
+        <!-- 라디오 서식(radio) -->
+        <p><input value="회고1팀" checked type="radio" name="techit-class" id="class-1" required />회고 1팀 <input value="회고2팀" type="radio" name="techit-class" id="class-2" required />회고 2팀</p>
 
         <button type="submit">전송</button>
       </fieldset>
