@@ -4,8 +4,16 @@
   color: orange;
 }
 
+body * {
+  color: violet;
+}
+
 /* 요소 선택자 */
 /* Cascade: 스타일을 모두 적용하여 겹치는 현상 -> 가장 마지막에 적용된 스타일이 보임 */
+html {
+  font-size: 0.625em;
+}
+
 p {
   color: blue;
 }
@@ -24,4 +32,72 @@ p {
 /* 속성 선택자 */
 [title] {
   color: pink;
+}
+
+/* 자손 결합 선택자 */
+p span {
+  color: skyblue;
+}
+
+/* 자식 선택자 */
+p > span {
+  text-decoration: underline;
+}
+
+/* 가상 요소 */
+/* 가상 요소는 무조건 content 속성이 필요함 */
+h1::before {
+  content: "첫번째 자식 요소";
+}
+h1::after {
+  content: "마지막 자식 요소";
+}
+
+p::first-letter {
+  font-size: 3.5rem;
+}
+
+::selection {
+  background-color: darkblue;
+  color: white;
+}
+
+/* 가상 클래스 */
+/* 대부분 변수를 :root에 적용시키는 경우가 많음 */
+:root {
+  font-size: 0.75em;
+}
+
+/* 선택자 그룹화 */
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+  background-color: yellow;
+  color: black;
+}
+
+/* 가상 클래스를 이용한 선택자 그룹화 */
+/* is 안에 클래스 객체 */
+:is(.heading, h2, h3, h4, h5, h6) span {
+  background-color: salmon;
+  color: blue;
+}
+
+:where(h1, h2, h3, h4, h5, h6) span {
+  background-color: lightgreen;
+  color: red;
+}
+
+/* p를 형제 요소로 갖는 h6을 선택 */
+h6:has(+ p) {
+  border: solid 1px green;
+  padding: 10px;
+}
+
+p:has(> strong) {
+  border: solid 1px red;
+  padding: 10px;
 }
