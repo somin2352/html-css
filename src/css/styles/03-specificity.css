@@ -1,0 +1,59 @@
+/* css 장식과 관련된 것은 모두 상속, 배치와 관련된 것은 모두 상속 x */
+body {
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  margin: 20px;
+  border: 10px solid green;
+  padding: 50px;
+  color: darkblue;
+}
+
+/* p {
+  color: blue;
+} */
+/* 익명의 layer를 적용할 시 우선 순위가 가장 낮아짐 */
+/* named layer */
+@layer techit, likelion;
+
+@layer likelion {
+  p {
+    color: red;
+  }
+}
+/* !important는 강제성을 부여하기 때문에 과한 사용은 지양해야 함 */
+@layer techit {
+  p {
+    color: green !important;
+  }
+}
+
+@layer likelion {
+  h2 {
+    background-color: yellow;
+  }
+}
+
+@layer techit {
+  h2 {
+    background-color: tomato;
+  }
+}
+
+/* css 우선순위는 상속 < 직접 지정 */
+/* h1 {
+  color: green;
+}
+
+/* cascade될 경우 순서도 영향을 미침 */
+/* 우선순위: 요소 < class < id */
+/* 문제 요인을 줄이기 위해 id는 특수한 경우만 사용 -> 스타일링할 때는 class를  더 많이 사용함 */
+/* p {
+  color: orange;
+}
+/* id와 class를 모두 명시하면 우선순위가 가장 높아짐 */
+/* #school.likelion {
+  color: grey;
+}
+
+#school {
+  color: red;
+} */
