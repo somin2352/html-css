@@ -1,0 +1,50 @@
+/* float은 부모 container 요소에 적용되지 않음 */
+.container div {
+  /* width: 100px;
+  inline-size: 100px; */
+  height: 100px;
+  block-size: 100px;
+  text-align: center;
+  line-height: 100px;
+}
+
+/* currentColor는 현재 글자 색상과 동일하게 적용됨 */
+.container {
+  border: 10px solid currentColor;
+  /*  */
+  /* display: flow-root; */
+  /* overflow: hidden; 이 경우 부모 컨테이너 밖으로 나갈 경우 자식 요소들이 잘림*/
+}
+
+/* float 시 normal-flow 적용 범위 밖으로 나가게 됨 */
+/* 너비를 주지 않은 경우, 가지고 있는 값의 크기만큼 영역이 바뀜 */
+div.box1 {
+  background-color: sandybrown;
+  float: left;
+  width: 100px;
+  inline-size: 100px;
+}
+/* box2라는 div라고 명시하여 구체성 점수를 높여 block-size가 적용되도록 함 */
+div.box2 {
+  background-color: skyblue;
+  block-size: auto;
+  line-height: 1;
+  text-align: left;
+}
+div.box3 {
+  background-color: lightgreen;
+  clear: both;
+  /* margin-block-start: 20px;
+  margin-top: 20px; */
+  inline-size: 200px;
+  width: 200px;
+  float: right;
+}
+div.box4 {
+  background-color: yellow;
+  width: 300px;
+  inline-size: 300px;
+  float: right;
+}
+
+/* BFC: block formatimng context */
