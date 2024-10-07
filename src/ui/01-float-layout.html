@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko-KR" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Float Layout| Techit</title>
+    <link rel="preload" as="style" href="./../assets/font/notoserif/notoserif.css" />
+    <link rel="stylesheet" href="./../assets/font/notoserif/notoserif.css" />
+    <link rel="preload" as="style" href="./../assets/font/pretendard/pretendardvariable-dynamic-subset.css" />
+    <link rel="stylesheet" href="./../assets/font/pretendard/pretendardvariable-dynamic-subset.css" />
+
+    <link rel="stylesheet" href="./styles/01-float-layout.css" />
+  </head>
+  <body>
+    <!-- 3단 markup: header(div role="banner") / main(div role="main") / footer(div role="contentinfo") 
+     4단 markup: + nav(div role="navigation") -->
+    <div class="container">
+      <header class="header">헤더</header>
+      <div class="visual">비주얼</div>
+      <main class="main">
+        <!-- div.group.group$*3{그룹$} -->
+        <div class="group group1">그룹1</div>
+        <div class="group group2">그룹2</div>
+        <div class="group group3">그룹3</div>
+      </main>
+      <article class="slogan">슬로건</article>
+      <footer class="footer">푸터</footer>
+    </div>
+  </body>
+</html>
