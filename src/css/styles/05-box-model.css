@@ -1,0 +1,92 @@
+/* span은 inline flow, div는 block flow를 기본으로 함 */
+/* inline 박스는 컨텐츠 크기를 맞춤, block 박스는 부모 컨테이너 박스(body 요소) 크기를 맞춤 */
+/* 요소별 배경색상 */
+span {
+  background-color: pink;
+}
+
+div {
+  background-color: yellow;
+}
+
+/* 형제 요소 */
+div + div {
+  background-color: lightgreen;
+}
+
+/* 논리 단위 
+margin-left -> margin-inline-start, 
+margin-right -> margin-inline-end,
+marigin-top -> margin-block-start,
+margin-bottom -> marign-block-end, 
+width -> inline-size, 
+height -> block-size */
+
+/* 인라인 상자 - 크기 지정 */
+/* 인라인 상자는 임의로 가로 세로 크기를 지정할 수 없음 */
+span {
+  width: 200px;
+  inline-size: 200px;
+  height: 200px;
+  block-size: 200px;
+}
+
+/* 블록 상자 - 크기 지정 */
+/* 박스모델 관련 속성 */
+.likelion {
+  width: 800px;
+  inline-size: 800px;
+  border: 10px solid currentColor;
+  padding: 50px;
+  /* margin: 0 auto; */
+  /* auto 키워드를 활용하여 정렬 스타일링 */
+  /* margin에서만 auto를 사용할 수 있음 */
+  margin-left: auto;
+  margin-inline-start: auto;
+}
+
+/* margin 속성 - 병합 */
+/* margin 병합은 block 병합만 적용됨 */
+.techit {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-block: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-block: 20px;
+}
+/* margin이 병합되지 않음 block element로 렌더링 될 경우만 margin이 병합됨 */
+/* section {
+  display: flex;
+  flex-direction: column;
+  border: 10px solid currentColor;
+} */
+
+/* margin 속성은 padding과 달리 음수 값을 가질 수 있음 */
+.school {
+  margin-top: -20px;
+  margin-bottom: -20px;
+  margin-block: -20px;
+}
+
+.negative {
+  background-color: orange;
+  margin-block: -10px;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
+section {
+  border: 1px solid currentColor;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-block: 50px;
+}
+
+/* 인라인 방향의 여백(margin) */
+/* inline 요소는 병합이 적용되지 않음 */
+span {
+  margin-inline: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
