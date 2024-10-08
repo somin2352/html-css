@@ -1,0 +1,52 @@
+@import "./../../common/normalize.css";
+
+.member {
+  background-color: yellow;
+
+  /* 캡슐화를 통해 묶여 있는 부분만 스타일링 */
+  /* depth를 크게 들어가는 것은 지양 -> Saas */
+  /* &ul -> &는 생략 가능 */
+  /* .member__list */
+  ul {
+    list-style: "";
+
+    /* .member ul li */
+    /* 구체성이 높아질수록  우선 순위가 높아짐 */
+    /* li {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-block: 10px;
+    } */
+  }
+
+  /* .member li */
+  /* .member__item */
+  li {
+    background-color: pink;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-block: 20px;
+  }
+
+  /* member__link */
+  a {
+    text-decoration: none;
+    color: #121212;
+
+    &:hover,
+    &:focus {
+      border: 1px solid red;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+/* Saas 방식이기 때문에 CSS에서는 동작 x */
+.likelion {
+  &__list {
+    background-color: lightgreen;
+  }
+}
