@@ -1,0 +1,58 @@
+@import "./../../common/reset.css";
+
+/* 전역 변수 지정 */
+:root {
+  /* 색상 - 사용자 정의 속성 */
+  --yellow: #fff100;
+  --blue: #006bff;
+  --skyblue: #08c2ff;
+  --aqua: #bcf2f6;
+  --orangered: #ff6500;
+  --orange: #fd8b51;
+
+  --primary: var(--yellow);
+  --secondary: var(--blue);
+
+  /* 여백 - 사용자 정의 속성 */
+  /* 4px 차이로 규칙적으로 정의 */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-base: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: 24px;
+
+  --gap: var(--spacing-xl);
+
+  /* 글자크기 - 사용자 정의 속성 */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+
+  --default-font-size: var(--text-sm);
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-size: var(--default-font-size);
+}
+
+h1 {
+  margin: var(--gap);
+}
+
+p {
+  margin: var(--gap);
+}
+
+/* 지역 변수 */
+/* 동적으로 변화하기에 용이 */
+.local-variable {
+  /* --blue: #1e3e62; */
+  /* custom-color의 값이 지정되지 않을 경우 뒤에 있는 값이 사용됨 */
+  --text-color: var(--custom-color, #1e3e62);
+
+  color: var(--text-color);
+}

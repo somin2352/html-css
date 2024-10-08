@@ -48,3 +48,6 @@ div.box4 {
 }
 
 /* BFC: block formating context */
+/* clear는 Block 요소에서만 사용 가능함 */
+/* float 처리를 한 자식요소의 부모에 display: flow-root를 적용해서 부몽게 높이를 알려줌 */
+/* 부모에게도 float처리를 할 경우 이중 float 처리가 됨 */
