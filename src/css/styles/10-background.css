@@ -1,0 +1,38 @@
+@import "./../../common/modern-reset.css";
+
+body {
+  margin: 50px;
+  font-family: "Pretendard variable", Pretendard, sans-serif;
+  /* body의 최소 높이를 현재 화면에 100%로 지정, body의 컨텐츠의 크기가 커지면 맞춰서 높이도 늘어남, scroll이 생기는 경우 margin을 없애주면 됨 */
+  /* min-height: 100vh;
+  min-block-size: 100vh; */
+  background-color: #f5e683;
+  background-image: url(./../../assets/images/rabbit.png);
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  background-size: 100px 120px;
+  background-attachment: fixed;
+}
+
+.bg-text-gradient {
+  font-size: 3.5rem;
+  font-weight: 900;
+  background-color: lightgreen;
+  margin-block: 20px;
+  background-image: linear-gradient(red, orange, green, darkblue, purple);
+  /* 글자에 gradient */
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-origin {
+  inline-size: 800px;
+  margin-inline: auto;
+  /* background-color: pink;
+  background-image: url(./../../assets/thumbnail/meeting\ -oom.jpg); */
+  /* 배경이 시작되는 영역을 어디서부터 시작할지 지정(border, context, padding) */
+  /* background-origin: border-box; */
+  padding: 20px;
+  border: 20px solid hsla(350, 50%, 50%, 0.2);
+  background: salmon url(./../../assets/thumbnail/meeting\ -oom.jpg) border-box no-repeat 20px 20px / cover;
+}
