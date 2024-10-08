@@ -1,0 +1,64 @@
+@import "./../../common/normalize.css";
+
+body {
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+}
+
+/* px 단위 */
+.unit-px {
+  font-size: 20px;
+}
+
+/* em 단위 -> 배수 */
+.unit-em-wrapper {
+  font-size: 1.5em;
+}
+
+.unit-em {
+  font-size: 1.5em;
+}
+
+/* rem 단위 */
+/* root(기본 글자는 16px) equal em */
+/* alt+m = 계산기 단축기 */
+.unit-rem {
+  font-size: 0.75rem;
+}
+
+.unit-rem-wrapper {
+  font-size: 1.5em;
+}
+/* em/rem은 사이트 내에서 글자 크기를 변경할때 같이 변경되나 px은 변경되지 않음 -> em/rem은 반응형 요소를 만들때 용이 */
+
+/* percentage 단위 */
+.unit-percentage {
+  font-size: 150%;
+}
+
+/* vw 단위 */
+/* 반응형 텍스트 사이즈 -> 화면 크기에 맞춰 글자 크기 변화 */
+/* min과 max를 지정하여 적용 */
+.unit-vw {
+  font-size: 3vw;
+}
+
+/* CSS 색상 값 */
+.unit-color-name {
+  color: darkgreen;
+}
+
+.unit-color-hex {
+  color: #ff0000;
+  background-color: #00f;
+}
+
+.unit-color-rgb {
+  color: rgb(0, 255, 0);
+  background-color: rgb(255 255 0);
+}
+
+/* hsl(색상, 명도, 채도) */
+.unit-color-hsla {
+  color: hsl(310, 50%, 50%, 0.5);
+  background-color: hsla(110 50% 20% / 0.5);
+}
