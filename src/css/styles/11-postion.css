@@ -1,0 +1,50 @@
+@import "./../../common/modern-reset.css";
+
+/* :not()으로 스타일링 제외 가능 */
+div {
+  padding: 10px;
+  font-size: 3rem;
+  border: 1px solid currentColor;
+}
+
+.static {
+  background: yellow;
+}
+
+/* span / block(BFC) */
+.fixed {
+  background: hsla(250, 50%, 50%, 0.5);
+  position: fixed;
+  /* 오른쪽 하단에 배치 */
+  inset-block-end: 0;
+  inset-inline-end: 0;
+}
+
+/* container -> position: static 아니면 relative / absolute 다 가능  */
+.relative-wrapper {
+  position: relative;
+  inset-block-start: 50px;
+  inset-inline-start: 50px;
+}
+
+.absolute-wrapper {
+  position: absolute;
+}
+
+/* absolute는 고정되어 있으나 scroll이 생기면 화면과 같이 이동 */
+.absolute {
+  inline-size: 650px;
+  background: sandybrown;
+  position: absolute;
+  inset-inline-start: 100px;
+  inset-block-start: 0px;
+}
+
+/* relative + static */
+.sticky {
+  background: aquamarine;
+  padding: 20px;
+  margin-block: 100px;
+  position: sticky;
+  inset-block-start: 0;
+}
