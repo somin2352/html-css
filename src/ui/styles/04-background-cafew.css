@@ -1,0 +1,95 @@
+@import "./../../common/a11y.css";
+@import "./../../common/best-reset.css";
+
+.cafew-lab {
+  inline-size: 1440px;
+  margin-inline: auto;
+}
+
+.cafew-header {
+  text-align: center;
+  /* uppercase, loewrcase, capitalize */
+  /* text-transform: lowercase; */
+
+  .cafew-name {
+    font-size: 2.875rem;
+  }
+
+  .cafew-intro {
+    font-size: 1.125rem;
+    /* 한 줄의 높이  */
+    line-height: 1.4;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  &::after {
+    content: "";
+    /* content가 inline 요소이기 때문에 display block을 사용 */
+    display: block;
+    inline-size: 70px;
+    block-size: 1px;
+    margin: 55px auto;
+    height: 1px;
+    background-color: currentColor;
+  }
+}
+
+.cafew-list {
+  list-style: "";
+  text-align: center;
+  font-size: 0;
+  /* 겹쳐진 부분때문에 옆으로 쏠린 것 같은 배치를 여백을 주어서 가운데 배치처럼 보이도록 함 */
+  padding-inline-start: 100px;
+
+  .cafew-list1,
+  .cafew-list2 {
+    width: 392px;
+    height: 392px;
+    background-size: cover;
+    /* 배경 이미지 포커스가 중앙으로 오도록 함 */
+    background-position: 50%;
+    position: relative;
+    /* inline 방향으로 배치하여 가운데 배치되도록 함 */
+    display: inline-block;
+  }
+
+  .cafew-list1 {
+    background-image: url(./../../assets/cafew/coffee-lab-01-@2x.jpg);
+    /* 겹친 부분이 값이 더 크게 하여 보이도록 함 */
+    z-index: 1;
+  }
+
+  .cafew-list2 {
+    background-image: url(./../../assets/cafew/coffee-lab-02-@2x.jpg);
+    /* 이미지 겹치게  */
+    inset-block-start: 100px;
+    inset-inline-start: -100px;
+  }
+
+  .lab-menu,
+  .lab-barista {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 3.2px;
+    position: absolute;
+    /* 링크 글자 오른쪽 하단으로 이동 후 해당 위치에서 이동 */
+    inset-block-end: 0;
+    transform: translate(-50%, -50%);
+    /* 줄바꿈 허용 안함 */
+    white-space: nowrap;
+
+    /* 링크 하단 바 */
+    &::after {
+      content: "";
+      display: block;
+      block-size: 10px;
+      background-color: #fff;
+    }
+  }
+}
