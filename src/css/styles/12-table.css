@@ -1,0 +1,73 @@
+@import "./../../common/modern-reset.css";
+
+body {
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  margin: 50px;
+}
+
+/* px단위로 글자 크기를 사용하면 브라우저에서 글자 크기를 적용할 때 유동적으로 적용되지 않으므로 rem 단위 사용을 권장 */
+/* p {
+  font-size: 1.25rem;
+} */
+
+/* 테이블 스타일링 */
+.table-styling {
+  /* border-width / border-sytle / border-color */
+  border: 1px solid currentColor;
+  /* 테두리를 병합하고 테두리 공백을 0으로 지정 */
+  border-collapse: collapse;
+  border-spacing: 0;
+  /* table-layout의 기본값이 auto */
+  /* fixed이면 동일하게 넓이가 적용됨, auto이면 테이블 컨텐츠의 길이를 고려하여 넓이가 적용됨*/
+  table-layout: fixed;
+  width: 100%;
+  inline-size: 100%;
+
+  .number {
+    inline-size: 10%;
+  }
+  .name {
+    inline-size: 20%;
+  }
+  .email {
+    inline-size: 40%;
+  }
+  .phone {
+    inline-size: 30%;
+  }
+
+  th {
+    background-color: sandybrown;
+  }
+
+  thead,
+  th,
+  td {
+    border: 1px solid currentColor;
+    /* em은 현재 글자 크기를 기준으로 여백 생성 */
+    padding: 1em;
+  }
+
+  thead {
+    /* scroll 시 border가 살아있게 하고 싶으면 border-collaspse를 separate로 지정 */
+    position: sticky;
+    inset-block-start: 0;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: silver;
+  }
+
+  tbody tr {
+    scroll-snap-align: start;
+  }
+}
+
+/* table 내부에 scroll 생성 */
+/* scroll-snap-type & scroll-snap-align */
+.table-wrapper {
+  height: 625px;
+  block-size: 625px;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
