@@ -57,3 +57,9 @@ select {
     transition: none;
   }
 }
+
+body,
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
