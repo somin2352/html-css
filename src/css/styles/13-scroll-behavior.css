@@ -1,0 +1,33 @@
+@import "./../../common/best-reset.css";
+
+/*dvh:주소 표시줄이 스크롤을 통해 축소가 되건 노출이 되고 있건 상관 없이
+현재 보여지는 뷰포트 높이를 동적으로 가져옴  */
+.scroll-wrapper {
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  block-size: 100vh;
+}
+
+section {
+  width: 100%;
+  inline-size: 100%;
+  height: 100vh;
+  block-size: 100vh;
+  scroll-snap-align: center;
+}
+
+.section-01 {
+  background-color: yellow;
+}
+
+.section-02 {
+  background-color: pink;
+}
+
+.section-03 {
+  background-color: lightgreen;
+}
+
+.section-04 {
+  background-color: aqua;
+}
