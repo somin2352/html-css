@@ -43,11 +43,13 @@
   font-size: 0;
   /* 겹쳐진 부분때문에 옆으로 쏠린 것 같은 배치를 여백을 주어서 가운데 배치처럼 보이도록 함 */
   padding-inline-start: 100px;
+  padding-block-end: 100px;
 
   .cafew-list1,
   .cafew-list2 {
     width: 392px;
     height: 392px;
+    background-repeat: no-repeat;
     background-size: cover;
     /* 배경 이미지 포커스가 중앙으로 오도록 함 */
     background-position: 50%;
@@ -71,18 +73,20 @@
 
   .lab-menu,
   .lab-barista {
+    /* 내부적으로는 block, 외부적으로는 inline 속성을 따름 즉, inline으로 배치되나 width와 height 속성 지정 및 margin과 padding 속성의 상하 간격 지정이 가능함 */
+    display: inline-block;
     text-decoration: none;
     color: white;
     font-size: 2rem;
     font-weight: 700;
     line-height: 1.4;
     letter-spacing: 3.2px;
-    position: absolute;
     /* 링크 글자 오른쪽 하단으로 이동 후 해당 위치에서 이동 */
-    inset-block-end: 0;
-    transform: translate(-50%, -50%);
+    /* inset-block-end: 0;
+    transform: translate(-50%, -50%); */
     /* 줄바꿈 허용 안함 */
-    white-space: nowrap;
+    /* white-space: nowrap; */
+    /* position: absolute; */
 
     /* 링크 하단 바 */
     &::after {
