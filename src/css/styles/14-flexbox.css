@@ -1,0 +1,66 @@
+@import "./../../common/mini-reset.css";
+
+body,
+h1 {
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  margin: 50px;
+}
+
+h2 {
+  border: 1px solid currentColor;
+  inline-size: 300px;
+  block-size: 100px;
+  text-align: center;
+  align-content: center;
+}
+/* flex는 부모의 성격이 바뀌도록 지정해야 원하는 해당 부분의 성격이 바뀜 */
+/* 부모에게 flex 속성을 주면 전체 부모 요소는 block, 안의 직계 자식은 inline */
+.flexbox-basic {
+  background-color: yellow;
+  inline-size: 1000px;
+  block-size: 600px;
+  margin-block: 20px;
+  /* border: 1px solid currentColor; */
+  /* box-sizing: content-box; */
+  box-shadow: 1px 1px 0 0 currentColor, -1px -1px 0 0 currentColor;
+  display: flex;
+  /* flex-flow = flex-direction + flex-wrap */
+  /* flex-flow: row nowrap; */
+  flex-direction: row;
+  /* 기본값은 no-wrap */
+  /* wrap은 줄바꿈을 허용, no-wrap은 자동으로 사이즈 조절 */
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: start;
+  align-content: start;
+  /* gap: 20px; */
+}
+
+.flex-item {
+  background-color: pink;
+  /* inline-size: 500px; */
+  block-size: 200px;
+  /* 기본값은 auto -> inline-size를 따름 */
+  flex-basis: 0;
+}
+
+.flex-item:nth-child(odd) {
+  order: 1;
+}
+
+.flex-item1 {
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+.flex-item2 {
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+.flex-item3 {
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+.flex-item4 {
+  flex-shrink: 1;
+  flex-grow: 1;
+}
