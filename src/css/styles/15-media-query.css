@@ -1,0 +1,48 @@
+@import "./../../common/mini-reset.css";
+
+body {
+  margin: 50px;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+}
+
+.box-border {
+  border: 1px solid currentColor;
+}
+
+.float-wrapper {
+  background-color: yellow;
+  border: 1px solid currentColor;
+  display: flow-root;
+
+  div {
+    background-color: pink;
+    float: inline-start;
+    inline-size: 10%;
+    /* 가로 세로 비율을 n/n으로 줌 */
+    aspect-ratio: 1/1;
+  }
+}
+
+.rwd-img {
+  width: 20%;
+}
+
+/* 미디어 쿼리 */
+/* 화면 환경 변화에 따라 다르게 보여짐 */
+/* 공동 스타일 */
+body {
+  background-color: yellow;
+
+  /* 모바일 디바이스 (320px 부터 480px까지 스타일) */
+  @media (min-width: 320px) {
+    & {
+      background-color: lightgreen;
+    }
+  }
+
+  @media (min-width: 480px) {
+    & {
+      background-color: aqua;
+    }
+  }
+}
