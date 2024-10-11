@@ -1,10 +1,31 @@
-@import "./../../common/modern-reset.css";
+/* @import "./../../common/modern-reset.css"; */
 
 /* :not()으로 스타일링 제외 가능 */
 div {
   padding: 10px;
   font-size: 3rem;
   border: 1px solid currentColor;
+}
+
+/* 요소 박스 위치 지정 (percentage value) */
+/* content-box: margin + border + padding + width */
+/* border-box: margin + width(border + padding) */
+/* <button> = border-box */
+.percentage-value {
+  border: 1px solid currentColor;
+  padding: 10 !important;
+  margin: 1em !important;
+  font-size: 1em !important;
+  inline-size: 200px;
+
+  p {
+    padding: 20% !important;
+    margin: 0;
+    border: inherit;
+    position: relative;
+    background-color: tomato;
+    inset-inline-start: 50%;
+  }
 }
 
 .static {
