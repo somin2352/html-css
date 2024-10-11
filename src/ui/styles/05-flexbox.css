@@ -1,0 +1,57 @@
+@import "./../../common/base.css";
+
+.ui_box {
+  background-color: yellow;
+}
+
+/* ul */
+.channel_list {
+  display: flex;
+  /* row방향으로 줄바꿈 허용 */
+  flex-flow: row wrap;
+  /* 리스트 스타일 제거 */
+  list-style: "";
+  /* 왼쪽 padding 여백 */
+  padding-inline-start: 0;
+  /* 상하 margin */
+  margin-block: 0;
+  /* width는 부모(.ui_box)의 60% */
+  inline-size: 60%;
+  /* 좌우 margin은 auto로 설정하여 가운데 배치 */
+  margin-inline: auto;
+  background-color: tomato;
+  /* li요소들 사이의 여백 */
+  gap: 1.5em;
+}
+
+/* li */
+.item {
+  /* grow=1, shrink=1, basis=auto */
+  flex: 1;
+  display: flex;
+  /* column 방향으로 줄바꿈하지않음 */
+  flex-flow: column nowrap;
+  /* img와 글자 사이의 여백 */
+  gap: 1em;
+  /* 최소 너비  */
+  min-inline-size: 150px;
+}
+
+/* img가 없는 li요소에  */
+.thumb {
+  background-color: aqua;
+  /* 자식 요소의 종횡비 */
+  aspect-ratio: 1/1;
+}
+
+.image {
+  width: 100%;
+  inline-size: 100%;
+  /* thumb영역 안에 image를 수직 중앙 정렬 */
+  vertical-align: middle;
+}
+
+.title {
+  /* flex-basis는 Flex 아이템의 기본 크기를 설정합니다(flex-direction이 row일 때는 너비, column일 때는 높이) */
+  flex-basis: 40px;
+}
