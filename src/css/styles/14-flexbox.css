@@ -55,12 +55,15 @@ h2 {
 .flex-item2 {
   flex-shrink: 1;
   flex-grow: 1;
+  background-color: aqua;
 }
 .flex-item3 {
   flex-shrink: 1;
   flex-grow: 1;
+  background-color: lightgreen;
 }
 .flex-item4 {
   flex-shrink: 1;
   flex-grow: 1;
+  background-color: sandybrown;
 }
