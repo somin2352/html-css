@@ -1,0 +1,195 @@
+@import "./../../common/base.css";
+@import "./../../common/a11y.css";
+
+:root {
+  /* 색상 변수 */
+  --dark-grey: #333;
+  --white: #fff;
+  --grey: #999;
+  --green: #03cf5d;
+  --silver: #dadada;
+  --black: #121212;
+
+  /* 아이콘 크기 변수 */
+  --size-sm: 0.75rem;
+  --size-base: 1rem;
+  --size-md: 1.25rem;
+  --size-lg: 1.5rem;
+
+  /* 글자 크기 변수 */
+  --text-sm: 0.75rem;
+  --text-base: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+}
+
+/* 기본 박스 사이징 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* body 기본 스타일링 */
+body {
+  color: var(--black);
+}
+
+/* 로고 컴포넌트 */
+.brand {
+  margin: 0;
+  /* h1 태그의 높이에 맞춰서 이미지가 적용 */
+  font-size: 100%;
+
+  /* block 처리를 해서 inline일 때 맞지 않았던 baseline문제를 해결 */
+  a,
+  svg,
+  img {
+    display: block;
+  }
+}
+
+/* 링크 컴포넌트 */
+.anchor--blank {
+  --text-color: var(--dark-grey, #333);
+
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+/* 체크박스 컴포넌트 */
+.checkbox {
+  /* position 속성을 이용해서 checkbox와 label이 겹치도록 배치 
+  기존의 체크박스를 전체 체크박스에 relative되게 하여 겹치게 만들고 형태를 안보이게 스타일링 */
+  position: relative;
+
+  .checkbox__input {
+    --icon-size: var(--size-lg, 1.5rem);
+
+    position: absolute;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    margin: 0;
+    /* inline-size와 동일한 비율을 갖도록 block-size를 지정 -> 키보드로 접근했을 때 체크박스에 접근할 수 있도록 함 */
+    inline-size: var(--icon-size);
+    aspect-ratio: 1/1;
+    /* 형태 안보임 */
+    appearance: none;
+  }
+
+  .checkbox__label {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  /* svg 이미지 형태를 모두 none으로 만든 후 재스타일링 */
+  .checkbox__area {
+    fill: var(--white, #fff);
+  }
+
+  .checkbox__border {
+    fill: var(--grey, #999);
+  }
+
+  .checkbox__mark {
+    fill: var(--grey, #999);
+  }
+
+  /* 체크박스가 체크되면 checkbox__area와 border, mark에 색상을 변경 */
+  .checkbox__input:checked + .checkbox__label .checkbox__area,
+  .checkbox__input:checked + .checkbox__label .checkbox__border {
+    fill: var(--green, #03cf5d);
+  }
+
+  .checkbox__input:checked + .checkbox__label .checkbox__mark {
+    fill: var(--white, #fff);
+  }
+}
+
+/* 입력 서식 컴포넌트 */
+.input {
+  --border-color: var(--silver, #dadada);
+  --text-color: var(--dark-grey, #333);
+  --text-size: var(--text-base, 0.875rem);
+
+  color: var(--text-color);
+  font-size: var(--text-size);
+
+  .input__input {
+    border: 1px solid var(--border-color);
+    /* vw/vh/svh/lvh */
+    /* viewport의 크기의 100%만큼 너비를 지정 */
+    inline-size: 100%;
+    block-size: 3rem;
+    padding: 0.875rem;
+
+    /* 입력 서식이 유효하지 않을 경우 해당 에러 메세지를 보여줌 */
+    &:user-invalid + .input__error-message span {
+      visibility: visible;
+    }
+
+    &:focus {
+      border: 1px solid var(--green);
+      background-color: #e9fafd;
+    }
+  }
+
+  .input__error-message {
+    color: #ff1414;
+    font-size: 0.75rem;
+    margin: 0;
+    margin-top: 0.5rem;
+
+    /* display:none은 영역 전체가 사라짐, visibility:hidden은 영역은 남고 컨텐츠만 사라짐 */
+    span {
+      visibility: hidden;
+    }
+  }
+}
+/* reflow, repaint? */
+
+/* 스위치 컴포넌트 */
+.switch {
+  position: relative;
+
+  .switch__input {
+    position: absolute;
+    margin: 0;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    inline-size: 2rem;
+    block-size: 1rem;
+    appearance: none;
+  }
+  .switch__label {
+    font-size: 0.875rem;
+    font-weight: 700;
+    /* inline-size는 block 요소일 경우만 적용됨 */
+    /* ON/OFF의 글자 크기 차이로 인한 reflow 문제를 해결하기 위해 너비를 지정 */
+    display: block;
+    inline-size: 2em;
+    /* 텍스트를 상자 너비 오른쪽 끝에 배치 */
+    text-align: end;
+
+    /* ::before, ::after 서식은 모두 content 속성이 필요함*/
+    &::after {
+      content: "OFF";
+    }
+  }
+
+  /* 체크박스가 체크됐을 때 switch__label의 가상 요소를 이용하여 변경 */
+  .switch__input:checked + .switch__label::after {
+    content: "ON";
+    color: var(--green);
+  }
+}
+
+/* 버튼 컴포넌트 */
+.button--primary {
+  background-color: var(--green);
+  color: var(--white);
+  border: 0;
+  block-size: 3.5rem;
+  padding: 1rem;
+}
