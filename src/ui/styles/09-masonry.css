@@ -1,0 +1,70 @@
+@import "./../../common/base.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.masonry-layout {
+  columns: 2;
+
+  figure {
+    margin: 2rem 0;
+    border: 1px solid currentColor;
+    padding: 1rem;
+    position: relative;
+
+    /* 첫 번재 이미지만 margin이 많이 부여되어 들어가 보이는 것을 보정 */
+    &:first-child {
+      margin-block-start: 0;
+    }
+  }
+
+  img {
+    /* 부모 크기에 따라 이미지가 유연해지기 위해서 */
+    max-inline-size: 100%;
+    /* figcaption의 배치와 맞추기 위해서 */
+    display: block;
+    /* sepia, blur, hue-rotate, grayscale,.. */
+    filter: sepia();
+
+    &:hover {
+      filter: none;
+    }
+  }
+
+  figcaption {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* figure에 relative 되도록 속성을 부여함 */
+    position: absolute;
+    padding: 1rem;
+    color: #fff;
+    /* backdrop-filter: blur(10px); */
+
+    /* 여백만큼을 양쪽으로 뺌, inset을 주면 이미지 크기에 맞춰짐 */
+    /* inset: 1rem; */
+    inset-inline: 1rem;
+    inset-block-end: 1rem;
+
+    /* 커서를 가져갔을 때 블러 처리가 되었던 이미지가 선명하게 보이도록 함 */
+    &:hover {
+      backdrop-filter: none;
+    }
+  }
+
+  /* .cat figcaption {
+    inset-block: 1rem;
+    inset-inline: 1rem;
+  }
+
+  .dog figcaption {
+    inset-block-start: 1rem;
+    inset-inline-end: 1rem;
+  }
+
+  .unsplash figcaption {
+    inset-block-end: 1rem;
+    inset-inline-start: 1rem;
+  } */
+}
