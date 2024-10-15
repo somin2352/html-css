@@ -1,0 +1,33 @@
+@import "./../../common/base.css";
+
+h1 {
+  background-color: teal;
+  color: white;
+  padding: 1rem;
+}
+
+.multi-column {
+  inline-size: 800px;
+  border: 1px solid red;
+  padding: 1.5em;
+  margin-inline: auto;
+  /* column-count: 2;
+  /* 단의 너비 */
+  column-width: 800px;
+  /* 나눠지는 단의 수 */
+  columns: 4;
+  /* 단 사이의 간격 */
+  column-gap: 40px;
+  /* 구분선 */
+  column-rule: 1px solid green;
+}
+
+/* 구분되도록 하는 span 태그의 영역 */
+.span-all {
+  display: block;
+  background-color: salmon;
+  padding: 1rem;
+  /* 이 부분만 합쳐서 */
+  column-span: all;
+  margin-block: 1rem;
+}
