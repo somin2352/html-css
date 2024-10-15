@@ -1,0 +1,149 @@
+@import "./../../common/base.css";
+
+*,
+::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 50px;
+}
+
+.grid-container {
+  min-inline-size: 1122px;
+  padding-inline: 20px;
+  border: 1px solid green;
+  /* display: inline-grid; */
+  /* grid-auto-flow: column; */
+  /* 반응형 단위를 지정할 때 많이 사용하는 함수 */
+  /* fr: fraction 최소 200px이며 균등하게 크기가 반응 */
+  /* grid-auto-columns: minmax(200px, 1fr); */
+  gap: 24px;
+  display: grid;
+  /* 아이템 하나당 템플릿을 하나씩 부여 */
+  /* auto는 크기를 고정한 아이템을 뺀 나머지 공간을 자동으로 채움, %는 전체 부모 컨테이너의 20%만큼의 공간을 차지 */
+  /* grid-template-columns: 150px auto 20em 20%; */
+  /* %는 부모 컨테이너를 넘어가는 문제가 발생할 수 있어 보통 fr 단위를 사용 */
+  /* repeat(반복할 횟수(아이템수), 크기 비율) */
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  grid-template-rows: repeat(5, 50px);
+
+  .grid-item {
+    border: 1px solid red;
+    padding: 0.5rem;
+  }
+
+  .grid-item1 {
+    background-color: yellow;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 4;
+    grid-column-end: 2;
+  }
+
+  .grid-item2 {
+    background-color: lightgreen;
+    grid-row: 3 / 5;
+    grid-column: 4 / 6;
+  }
+
+  .grid-item3 {
+    background-color: lightpink;
+    grid-row: 1 / span 2;
+    grid-column: 2 / span 2;
+  }
+
+  .grid-item4 {
+    background-color: lightskyblue;
+    grid-row: 5;
+    grid-column: 1 / -1;
+  }
+
+  .grid-item5 {
+    background-color: lightsalmon;
+    grid-area: 3 / 2 / span 3 / span 2;
+  }
+}
+
+/* 그리드 라인 이름 */
+.grid-wrapper {
+  min-inline-size: 1122px;
+  padding-inline: 20px;
+  border: 1px solid green;
+  gap: 24px;
+  display: grid;
+  grid-template-columns: [techit-start] 1fr [likelion-start] 1fr [euid-start] 1fr 1fr [euid-end likelion-end] 1fr [techit-end];
+  grid-template-rows: repeat(5, 50px);
+
+  .grid-item {
+    padding: 0.5rem;
+  }
+
+  .grid-item1 {
+    background-color: yellow;
+    grid-column: techit;
+  }
+
+  .grid-item2 {
+    background-color: lightgreen;
+    grid-column: likelion;
+  }
+
+  .grid-item3 {
+    background-color: lightpink;
+    grid-column: euid;
+  }
+
+  .grid-item4 {
+    background-color: lightskyblue;
+  }
+
+  .grid-item5 {
+    background-color: lightsalmon;
+  }
+}
+
+/* 그리드 영역 이름 */
+.grid-box {
+  min-inline-size: 1122px;
+  border: 1px solid green;
+  padding-inline: 20px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  grid-template-rows: auto;
+  grid-template-areas:
+    "item1 item1 item1 item2 item2"
+    "item3 item3 item4 item4 item4"
+    "item5 item5 item5 item5 item5";
+
+  .grid-item {
+    padding: 0.5rem;
+  }
+
+  .grid-item1 {
+    background-color: gold;
+    grid-area: item1;
+  }
+
+  .grid-item2 {
+    background-color: lightgreen;
+    grid-area: item2;
+  }
+
+  .grid-item3 {
+    background-color: lightpink;
+    grid-area: item3;
+  }
+
+  .grid-item4 {
+    background-color: lightskyblue;
+    grid-area: item4;
+  }
+
+  .grid-item5 {
+    background-color: lightsalmon;
+    grid-area: item5;
+  }
+}
