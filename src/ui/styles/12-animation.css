@@ -1,0 +1,95 @@
+@import "./../../common/modern-reset.css";
+@import "./../../common/base.css";
+
+h1,
+h2,
+button {
+  margin-block: 1rem;
+}
+
+.button--burger {
+  inline-size: 24px;
+  block-size: 24px;
+  position: relative;
+  /* 투명 배경색 */
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+
+  .burger-bar {
+    /* position absolute로 암묵적으로 block으로 처리됨 */
+    position: absolute;
+    inset-inline: 0;
+    /* %단위를 써서 유연하게 동작하도록 함 */
+    block-size: 20%;
+    background-color: currentColor;
+    border-radius: 100px;
+    transition: all 0.2s;
+  }
+
+  .burger-bar-top {
+    inset-block-start: 0;
+  }
+
+  .burger-bar-middle {
+    /* 현재 상자 크기를 맞추면서 중앙 배치 */
+    /* 중앙에 위치 */
+    inset-block-start: 50%;
+    /* 자신의 크기의 절반만큼만 y축 위로 이동 */
+    /* transform: translateY(-50%); */
+    translate: 0 -50%;
+  }
+
+  .burger-bar-bottom {
+    /* 가장 끝에 위치 */
+    inset-block-start: 100%;
+    /* 자신의 전체 크기만큼 y축 위로 이동 */
+    /* transform: translateY(-100%); */
+    translate: 0 -100%;
+  }
+
+  &:hover {
+    .burger-bar-middle {
+      inset-block-start: 50%;
+      /* transform: translate(-120%, -50%); */
+      translate: -120% -50%;
+    }
+
+    .burger-bar-top {
+      inset-block-start: 50%;
+      /* translate 이동 후 rotate되어야 가운데에서 알맞게 크로스됨 -> 순서를 rotate가 뒤로 가게 함 */
+      /* transform: translateY(-50%) rotate(45deg); */
+      translate: 0 -50%;
+      rotate: -45deg;
+    }
+
+    .burger-bar-bottom {
+      inset-block-start: 50%;
+      /* transform: translateY(-50%) rotate(-45deg); */
+      translate: 0 -50%;
+      rotate: 45deg;
+    }
+  }
+}
+
+@keyframes spinner {
+  0% {
+    rotate: 0deg;
+  }
+
+  100% {
+    rotate: 360deg;
+  }
+}
+
+.loading-spinner {
+  inline-size: 48px;
+  block-size: 48px;
+  color: var(--red);
+
+  svg {
+    /* step(10): 0.12초 단위로 끊어서 실행 */
+    animation: spinner 1s infinite steps(12);
+  }
+}
