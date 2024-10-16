@@ -1,0 +1,100 @@
+@import "./../../common/modern-reset.css";
+@import "./../../common/base.css";
+
+h1,
+h2 {
+  margin-block: 1rem;
+}
+
+@keyframes fadeEffect {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.transition-box {
+  border: 1px solid var(--blck);
+  background-color: var(--gray);
+  color: var(--white);
+  padding: 1rem;
+  inline-size: 300px;
+  margin-block: 20px;
+  /* 애니메이션을 줄 속성 */
+  /* transition-property: color, background-color, inline-size, transform; */
+  /* 애니메이션이 실행되는 시간 */
+  /* transition-duration: 1s, 1s, 1s; */
+  /* 애니메이션 실행 전 대기 시간 */
+  /* transition-delay: 0s, 1s, 2s; */
+  transition: color 1s 0s, background-color 1s 1s, transform 1s 2s;
+  transform-origin: left top;
+
+  /* .transition-box:hover {
+  color: var(--red);
+} */
+
+  &.is--animation {
+    color: var(--red);
+    background-color: var(--yellow);
+    /* inline-size: 500px; */
+    transform: scale(2);
+  }
+}
+
+.transform-box {
+  border: 1px solid var(--blck);
+  background-color: var(--gray);
+  color: var(--white);
+  padding: 1rem;
+  inline-size: 300px;
+  margin-block: 20px;
+  margin-inline: auto;
+  transition: all 2s;
+  /* 동작할 때 원래 위치 지정 */
+  transform-origin: left top;
+
+  &.is--animation {
+    /* 크기 변화 애니메이션 */
+    scale: 0.75;
+    /* x, y축 위치 */
+    /* translate: translateX(100px); */
+    translate: 100px 0;
+    rotate: 3turn;
+  }
+}
+
+/* CSS 애니메이션 */
+.fade-box {
+  inline-size: 150px;
+  block-size: 150px;
+  background-color: var(--red);
+  text-align: center;
+  align-content: center;
+  /* animation-name: fadeEffect;
+  animation-duration: 3s; */
+  margin-block: 1rem;
+
+  @media (prefer-reduced-motion) {
+    animation-play-state: paused;
+  }
+
+  &.is--animation {
+    animation-name: fadeEffect;
+    animation-duration: 3s;
+    /* 애니메이션이 끝나고 그 지점에 가만히 있음 */
+    animation-fill-mode: forwards;
+    /* 애니메이션 무한 반복 */
+    animation-iteration-count: infinite;
+    /* 실행을 순방향으로 갔다가 역방향으로 설정  */
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-play-state: running;
+
+    &.fade-box2 {
+      animation-delay: 2s;
+    }
+  }
+}
