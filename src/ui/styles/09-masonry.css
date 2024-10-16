@@ -7,7 +7,7 @@
 }
 
 .masonry-layout {
-  columns: 2;
+  columns: 4;
 
   figure {
     margin: 2rem 0;
