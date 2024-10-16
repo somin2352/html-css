@@ -1,0 +1,99 @@
+@import "./../../common/modern-reset.css";
+@import "./../../common/base.css";
+
+body {
+  margin: 0;
+}
+
+.header {
+  background-color: var(--yellow);
+}
+.navigation {
+  background-color: var(--pink);
+}
+.main-menu {
+  background-color: var(--green);
+}
+.main {
+  background-color: var(--blue);
+}
+.footer {
+  background-color: var(--orange);
+}
+.main section,
+.main article {
+  background-color: var(--violet);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: [container-start] 1fr [content-start] repeat(12, minmax(54px, 1fr)) [content-end] 1fr [container-end];
+  grid-template-rows: repeat(5, auto);
+  column-gap: 1.5rem;
+
+  .header {
+    grid-column: content;
+    block-size: 12vh;
+  }
+
+  .navigation {
+    block-size: 16vh;
+    grid-column: container;
+    /* 내부의 main-menu를 정렬하기 위해 grid 정의 */
+    display: grid;
+    /* 부모 컨테이너의 템플릿을 그대로 가져다 씀을 의미 */
+    grid-template-columns: subgrid;
+
+    .main-menu {
+      grid-column: content;
+    }
+  }
+
+  .footer {
+    grid-column: container;
+    text-align: center;
+    align-content: center;
+    block-size: 12vh;
+  }
+
+  .main {
+    grid-column: container;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+    /* container 전체를 기준으로 main 영역만 높이를 2만큼 가지도록 함 */
+    grid-row: 3 / 5;
+    row-gap: 1rem;
+
+    section,
+    article {
+      block-size: 25svh;
+    }
+
+    .book {
+      grid-column: 2 / span 4;
+      grid-row: 1;
+    }
+
+    .news {
+      grid-column: 6 / span 8;
+      grid-row: 1;
+    }
+
+    .board {
+      grid-column: 2 / span 4;
+      grid-row: 2;
+    }
+
+    .favorite {
+      grid-column: 6 / span 4;
+      grid-row: 2;
+    }
+
+    .twitter {
+      grid-column: 10 / span 4;
+      grid-row: 2;
+    }
+  }
+}
